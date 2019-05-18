@@ -412,7 +412,7 @@ public class CustomerServiceImpl implements CustomerService {
     public Long countByImage(Integer id) {
         ImageExample example=new ImageExample();
         ImageExample.Criteria criteria=example.createCriteria();
-        criteria.andCustIdEqualTo(id).andCategoryIdNotEqualTo(15);
+        criteria.andCustIdEqualTo(id).andCategoryIdNotEqualTo(15).andImageStatusEqualTo(1);
         return imageDao.countByExample(example);
 
     }
@@ -426,20 +426,9 @@ public class CustomerServiceImpl implements CustomerService {
     public Long countByImageFavorite(Integer id) {
         ImageFavoriteExample example=new ImageFavoriteExample();
         ImageFavoriteExample.Criteria criteria=example.createCriteria();
-        criteria.andCustIdEqualTo(id);
+        criteria.andCustIdEqualTo(id).andFavoriteStatusEqualTo(1);
         return imageFavoriteDao.countByExample(example);
     }
-
-
-    /*=*************************************************************************************************************************/
-
-
-
-
-
-
-
-
 
 
     /**
@@ -470,13 +459,6 @@ public class CustomerServiceImpl implements CustomerService {
         map.put("rangeLevel", rangeLevel);
         return  ServerResponse.createBySuccess("",map);
     }
-
-
-
-
-
-
-
 
 
     /**

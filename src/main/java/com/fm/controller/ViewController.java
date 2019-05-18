@@ -167,4 +167,6 @@ public class ViewController {
         session.setAttribute("bulletinId", bulletinId);
         return "WEB-INF/view/community/bulletin";
     }
+
+
 }

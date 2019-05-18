@@ -37,12 +37,6 @@ public class CategoryServiceImpl implements CategoryService {
         return null;
     }
 
-    @Override
-    public List<ImageCategory> findAll() {
-        ImageCategoryExample imageCategoryExample=new ImageCategoryExample();
-        imageCategoryExample.createCriteria().andCategoryStatusEqualTo(1);
-        return this.imageCategoryDao.selectByExample(imageCategoryExample);
-    }
 
     @Override
     public ImageCategory findById(Integer id) {
@@ -62,4 +56,12 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return categoryInfo;
     }
+    @Override
+    public List<ImageCategory> findAll() {
+        ImageCategoryExample imageCategoryExample=new ImageCategoryExample();
+        imageCategoryExample.createCriteria().andCategoryStatusEqualTo(1);
+        return this.imageCategoryDao.selectByExample(imageCategoryExample);
+    }
+
+
 }
